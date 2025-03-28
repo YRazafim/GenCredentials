@@ -46,7 +46,7 @@ def mix_words_length (words, length):
     for permutation in itertools.permutations (words, length):
         for separator in SEPARATORS:
             output = []
-            for c in itertools.product (' ' + separator, repeat = len (permutation) - 1):
+            for c in itertools.product ([' ', separator], repeat = len (permutation) - 1):
                 output.append (('%s'.join (permutation) % c).replace (' ', ''))
             new_list += output
     return new_list
